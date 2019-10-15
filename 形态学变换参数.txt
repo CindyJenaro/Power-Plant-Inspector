@@ -1,0 +1,33 @@
+Bright：
+const int thres = 20;
+const int op = MORPH_OPEN;
+const int elem = 0;
+const int size = 3;
+const int iter = 2; 最佳， iter = 1其次，会有大量干扰数据
+elem = 2效果不好
+
+22：
+const int thres = 20;
+const int op = MORPH_OPEN;
+const int elem = 0;
+const int size = 3;
+const int iter = 1; 干扰数据多一些，水滴遗漏不多
+
+11：
+整体效果不好，信噪比非常低，但研究中间数据THRES发现其实是手抖厉害的原因
+
+Dark:
+const int thres = 20;
+const int op = MORPH_OPEN;
+const int elem = 0;
+const int size = 3;
+const int iter = 1;
+iter = 2会遗漏小一点的水滴，但对大一点的水滴没有影响
+
+结论：整体最佳为
+const int thres = 20;
+const int op = MORPH_OPEN;
+const int elem = 0;
+const int size = 3;
+const int iter = 1;
+欢迎探索更适合的参数组！
