@@ -27,24 +27,25 @@
 > **重要说明**：`Step 123 FullProcess.cpp`会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是`vector<vector<Point>> contours`的析构函数处，这个数据类型为opencv自身的接口`findContours()`所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
 
 #### 关于水滴识别
-> 第一个尝试：CV::SVM（`trainAuto()`方法自动优化参数）  
-目前使用自检数据，效果并不理想  
+> 虽然之前的自检数据并不理想  
+但当时早有预感视频数据的结果比自检数据还会好  
 >  
->【对比】识别手写字体（MNIST）可以达到：  
-Accuracy: 0.909091  
-Precision: 0.908163  
-Recall: 0.89899  
-f-score: 0.903553  
->  
->【然而】自检水滴数据集（自动优化参数时）只能达到：  
-Accuracy: 0.914689  
+以结果最好的Bright.avi为例  
+阳性 : 阴性 = 147 : 591 ≈ 1 : 4  
+>
+>【在训练集上测试】  
+svm_auto.xml 13,653KB  
+TP: 147 TN: 590  
+FP: 0 FN: 1  
+Accuracy: 0.998645  
 Precision: 1  
-Recall: 0.111765  
-f-score: 0.201058  
-（模拟实际应用中，阳性例：阴性例 ≈ 1：9，否则阳性例：阴性例 ≈ 1：1时f-score会高一些，在0.6左右）  
->  
->下一步计划：在SVM之前做卷积池化；用模拟退火算法寻找最优卷积核  
-也可以考虑用YOLO，但自己感觉还是尽可能用简单些的算法，算法越简单实时性越好  
+Recall: 0.993243  
+F-score: 0.99661  
+Total timecost: 2.659s  
+注：auto_train()函数自身已保证有**交叉测试**  
+>下一步计划：（双保险）确认好结果的出现不是过拟合；在Dark.avi等之上测试  
+（备选）用SSD改进算法；在SVM之前做卷积池化；用模拟退火算法寻找最优卷积核  
+同步进行YOLO试验
 
 
 #### 关于YOLO v3的python版本
