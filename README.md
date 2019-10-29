@@ -19,7 +19,7 @@
 - svm.xml和svm_auto.xml是用代码中`#ifndef AUTO`和`#else`分别训练出来的两个SVM模型，waterdrops结果.txt分别记录其分类结果（很不理想）
 
 ###### 亮环境真实数据集
-> 比自检数据集结果好得多得多的[**亮环境真实数据集（Enhanced）.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/%E4%BA%AE%E7%8E%AF%E5%A2%83%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%EF%BC%88Enhanced%EF%BC%89.rar)  
+> 比自检数据集结果好得多得多的[**亮环境真实数据集（Enhanced）.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/%E4%BA%AE%E7%8E%AF%E5%A2%83%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88Enhanced%EF%BC%89.rar)  
 阴性 : 阳性 = 4250 : 1064 ≈ 4 : 1（未经过筛选的真实比例）  
 数据集扩增代码: `Cropped_enhance.cpp`（可以通过亮度微调把一张训练图变成8张）
   
