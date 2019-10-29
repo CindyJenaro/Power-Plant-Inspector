@@ -6,7 +6,7 @@
 > 代码生成的过程数据和结果数据，由于文件太大无法上传至git，可移步[**清华云盘**](https://cloud.tsinghua.edu.cn/#group/4445/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19)  
 其中，每个压缩文件中RESULT文件夹存放的是最终结果（神经网络之前），其他文件夹存放过程数据，参见`Step 123 FullProcess.cpp` 
 
-> 水滴自检数据存放于清华云盘的Crazy_Waterdrops.rar数据集上，其中文件夹：
+> 水滴自检数据存放于清华云盘的[**Crazy_Waterdrops.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/Crazy_Waterdrops.rar)数据集上，其中文件夹：
 - 1为有水滴训练数据
 - 0为无水滴训练数据
 - test1为有水滴测试数据
@@ -16,7 +16,9 @@
 > 以上两个文件夹可以批量移图片至前面四个文件夹，从而调整训练、测试数据的多少和1/0比例（目前比例≈1：9）。  
 > 以上六个文件夹图片大小均为31x31，格式为jpg。来自不同原始图片的训练、测试图片已通过随机修改文件名的方法尽量打乱顺序。
 - svm.xml和svm_auto.xml是用代码中`#ifndef AUTO`和`#else`分别训练出来的两个SVM模型，waterdrops结果.txt分别记录其分类结果（很不理想）
-
+> 比自检数据集结果好得多得多的[**亮环境真实数据集**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/%E4%BA%AE%E7%8E%AF%E5%A2%83%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E9%9B%86.rar)  
+阳性 : 阴性 = 147 : 591 ≈ 1 : 4（未经过筛选的真实比例）  
+目前还未分出test数据集，下一步准备分出test数据集并进行数据集扩增  
   
 #### 关于前期视频处理
 
