@@ -24,7 +24,7 @@
 使用格式工厂降低视频帧率至**12帧/秒**，效果明显有所提升。  
 [**格式工厂无毒下载链接**](http://soft.onlinedown.net/soft/983615.htm)  
 
->**重要说明:**视频处理的程序会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是vector<vector<Point>> contours的析构函数处，这个数据类型为opencv自身的接口findContours()所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
+> **重要说明：**视频处理的程序会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是vector<vector<Point>> contours的析构函数处，这个数据类型为opencv自身的接口findContours()所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
 
 #### 关于水滴识别
 > 第一个尝试：CV::SVM（trainAuto()方法自动优化参数）  
