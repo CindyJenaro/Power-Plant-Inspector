@@ -27,6 +27,8 @@
 > **重要说明**：`Step 123 FullProcess.cpp`会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是`vector<vector<Point>> contours`的析构函数处，这个数据类型为opencv自身的接口`findContours()`所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
 
 #### 关于水滴识别
+
+###### SVM版本
 > 虽然之前的自检数据并不理想  
 但当时早有预感视频数据的结果比自检数据还会好  
 >  
@@ -48,7 +50,7 @@ Total timecost: 2.659s
 同步进行YOLO试验
 
 
-#### 关于YOLO v3的python版本
+###### YOLO v3的python版本
 > 基于一块单片机（Nano）的板子实现对图片的Inference；这里的Inference使用的是COCO的数据集，未进行新的数据的训练，更改detect.py至可以直接调用CSI摄像头（鱼眼摄像头），速度约为0.7s检测一张图片
 >
 > 在本地计算机的GPU上，Inference约为0.2s一张图片，相比Nano上未调用摄像头的速度（0.6s），推测在本地计算机使用GPU+调用摄像头得到的帧数并不能够提高到12帧左右
