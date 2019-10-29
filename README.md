@@ -19,8 +19,8 @@
 - svm.xml和svm_auto.xml是用代码中`#ifndef AUTO`和`#else`分别训练出来的两个SVM模型，waterdrops结果.txt分别记录其分类结果（很不理想）
 
 ###### 亮环境真实数据集
-> 比自检数据集结果好得多得多的[**亮环境真实数据集.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/%E4%BA%AE%E7%8E%AF%E5%A2%83%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E9%9B%86.rar)  
-阳性 : 阴性 = 147 : 591 ≈ 1 : 4（未经过筛选的真实比例）  
+> 比自检数据集结果好得多得多的[**亮环境真实数据集（Enhanced）.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/%E4%BA%AE%E7%8E%AF%E5%A2%83%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%EF%BC%88Enhanced%EF%BC%89.rar)  
+阴性 : 阳性 = 4250 : 1064 ≈ 4 : 1（未经过筛选的真实比例）  
 数据集扩增代码: `Cropped_enhance.cpp`（可以通过亮度微调把一张训练图变成8张）
   
 #### 关于前期视频处理
@@ -40,17 +40,16 @@
 以结果最好的Bright.avi为例  
 阳性 : 阴性 = 147 : 591 ≈ 1 : 4  
 >
->【在训练集上测试】  
-svm_auto.xml 13,653KB  
-TP: 147 TN: 590  
-FP: 0 FN: 1  
-Accuracy: 0.998645  
+>测试集结果  
+svm_auto.xml 23,963KB  
+TP: 120 TN: 470  
+FP: 0 FN: 0  
+Accuracy: 1  
 Precision: 1  
-Recall: 0.993243  
-F-score: 0.99661  
-Total timecost: 2.659s  
-注：auto_train()函数自身已保证有**交叉测试**  
->下一步计划：（双保险）确认好结果的出现不是过拟合；在Dark.avi等之上测试  
+Recall: 1  
+F-score: 1  
+Total timecost: 3.788s  
+>下一步计划：在Dark.avi等之上测试  
 （备选）用SSD改进算法；在SVM之前做卷积池化；用模拟退火算法寻找最优卷积核  
 同步进行YOLO试验
 
