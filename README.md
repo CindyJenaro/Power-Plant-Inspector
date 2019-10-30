@@ -26,7 +26,7 @@
 ###### 真实测试结果
 > svm_auto.xml是在亮环境下训练出的模型，对暗环境中的水滴完全没有辨识能力。  
 但亮环境下识别出的基本都是水滴。全部放在[**REPORTED.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/REPORTED.rar)目录下。所有水滴选框已经resize为40 x 40px。  
-去除写文件花费的时间，花费6.062秒出来这些结果（Bright.avi总长度为8秒）。  
+记录程序运行时间：（Bright.avi总长度为8秒）
 stderr:  
 读取视频开始  
 读取视频完成，到此用时2.876秒  
