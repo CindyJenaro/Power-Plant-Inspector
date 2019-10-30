@@ -23,7 +23,20 @@
 阴性 : 阳性 = 4250 : 1064 ≈ 4 : 1（未经过筛选的真实比例）  
 数据集扩增代码: `Cropped_enhance.cpp`（可以通过亮度微调把一张训练图变成8张）
 
-> **重要说明**：`Step 123 FullProcess.cpp`会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是`vector<vector<Point>> contours`的析构函数处，这个数据类型为opencv自身的接口`findContours()`所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
+###### 真实测试结果
+> svm_auto.xml是在亮环境下训练出的模型，对暗环境中的水滴完全没有辨识能力。  
+但亮环境下识别出的基本都是水滴。全部放在[**REPORTED.rar**](https://cloud.tsinghua.edu.cn/lib/76d50336-c98e-49a0-a3df-7415cc6f3f19/file/REPORTED.rar)目录下。所有水滴选框已经resize为40 x 40px。  
+去除写文件花费的时间，花费6.062秒出来这些结果（Bright.avi总长度为8秒）。  
+stderr:  
+读取视频开始  
+读取视频完成，到此用时2.876秒  
+轮廓识别开始  
+切图完成，到此用时4.249秒  
+加载模型完成  
+读取选区文件完成  
+报告水滴完成，到此用时5.964秒  
+
+> **重要说明**：`Step 1234 FullProcess.cpp`会crash。但（根据数十篇csdn&stackoverflow&etc博客）这不是代码的bug，而是opencv本身的bug，而且目前还没有很好的方法解决或绕开这个问题。crash的地点是`vector<vector<Point>> contours`的析构函数处，这个数据类型为opencv自身的接口`findContours()`所需要。现在可以保证整个程序运行期间不会crash，所有结果可以得到有效保存，但是退出程序时会crash一次。
   
 #### 关于前期视频处理
 
